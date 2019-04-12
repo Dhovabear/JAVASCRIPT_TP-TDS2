@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exo n2</title>
+</head>
+<body>
+
+<input type="text" placeholder="valeur" id="1">
+<input type="button" value="Ok" onclick="aff();">
+<input type="button" value="add" draggable="true" onclick="appendDivContent();">
+
+<div id="div1">
+    d<br>
+</div>
+
+<script>
+
+    
+    function aff() {
+        var tf = document.getElementById("1");
+        alert(tf.value);
+    }
+
+    function appendDivContent() {
+        var tf = document.getElementById("1");
+        var div = document.getElementById("div1");
+        div.innerText += tf.value + "\n";
+    }
+
+
+</script>
+
+</body>
+</html>
