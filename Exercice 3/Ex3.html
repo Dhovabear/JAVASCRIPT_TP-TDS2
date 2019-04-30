@@ -14,32 +14,80 @@
 </head>
 <body style="text-align: center">
 
-    <div class="" style="display: inline-block">
-        <div class="alert alert-danger">ddddd</div>
-        <form action="">
-            <div style="display: block; float: left;">
-                <label for="nom" style="margin: 5px 0px 10px 0px">Nom*</label><br>
-                <label for="prenom" style="margin: 0px 0px 15px 0px">Prenom*</label><br>
-                <label for="adresse" style="margin: 0px 0px 10px 0px">Adresse</label><br>
-                <label for="codePostal" style="margin: 0px 0px 13px 0px">Code Postal</label><br>
-                <label for="ville" style="margin: 0px 0px 10px 0px">Ville*</label>
-            </div>
-
-            <div style="display: block; float: right">
-                <input type="text" name="nom" style="float: right" required><br>
-                <input type="text" name="prenom" style="float: right" required><br>
-                <input type="text" name="adresse" style="float: right"><br>
-                <input type="text" name="codePostal" style="float: right"><br>
-                <input type="text" name="ville" style="float: right" required><br>
+    <div style="margin-top: 10%"></div>
+    <div class="" style="display: inline-block; text-align: center; width: 20%;">
+        <div class="alert alert-danger" id="err" style="display: none" >Erreur <br> veuillez remplir correctements le(s) champ(s)</div>
+        <form action="" id="formulaire">
+            <div style="display: inline-block; text-align: left; width: 80%;">
+                <label  style="margin: 5px 0px 10px 0px">Nom*</label><input id = "tfnom" class="required" type="text" name="nom" style="float: right"><br><br>
+                <label  style="margin: 0px 0px 15px 0px">Prenom*</label><input id = "tfprenom" class="required" type="text" name="prenom" style="float: right"><br><br>
+                <label  style="margin: 0px 0px 10px 0px">Adresse</label><input id = "tfadresse" type="text" name="adresse" style="float: right"><br><br>
+                <label  style="margin: 0px 0px 13px 0px">Code Postal</label><input id = "tfcodePostal" type="text" name="codePostal" style="float: right"><br><br>
+                <label  style="margin: 0px 0px 10px 0px">Ville*</label><input id = "tfville" class="required" type="text" name="ville" style="float: right"><br><br>
             </div>
             <br>
-            <div style="display: inline-block; float: bottom; width: 250px">
-                <input type="button" value="Reset" style="float: left;" class="btn btn-secondary"><input type="submit" value="Ok" style="float: right" class="btn btn-primary"><br>
+            <div style="display: inline-block; float: bottom; width: 270px">
+                <input type="button" value="Reset" style="float: left;" class="btn btn-secondary" onclick="reset()">
+                <input type="button" value="Valider" style="float: right" class="btn btn-primary" onclick="valider()"><br>
             </div>
 
         </form>
     </div>
 
+    <script>
+        var tfNom = document.getElementById("tfnom");
+        var tfPrenom = document.getElementById("tfprenom");
+        var tfAdresse = document.getElementById("tfadresse");
+        var tfCodePostal = document.getElementById("tfcodePostal");
+        var tfVille = document.getElementById("tfville");
+
+        var alertDiv = document.getElementById("err");
+
+        function valider() {
+            console.log("prout");
+            if(tfNom.value == "" || tfPrenom.value == "" || tfVille.value == ""){
+                alertDiv.style.display = "block";
+                alertDiv.innerText = "Erreur \n" + "veuillez remplir correctements le(s) champ(s)\n";
+
+                if(tfNom.value == ""){
+                    alertDiv.innerText += "  Nom  ";
+                    tfNom.style.border = "1px solid red";
+                }else{
+                    tfNom.style.border = "";
+                }
+
+                if(tfPrenom.value == ""){
+                    alertDiv.innerText += "  Prenom  ";
+                    tfPrenom.style.border = "1px solid red";
+                }else{
+                    tfPrenom.style.border = "";
+                }
+
+                if(tfVille.value == ""){
+                    alertDiv.innerText += "  Ville  ";
+                    tfVille.style.border = "1px solid red";
+                }else{
+                    tfVille.style.border = "";
+                }
+
+            }else{
+                tfVille.style.border = "";
+                tfPrenom.style.border = "";
+                tfNom.style.border = "";
+                alertDiv.style.display = "none";
+                document.getElementById("formulaire").submit();
+            }
+        }
+
+        function reset() {
+            tfNom.value = "";
+            tfPrenom.value = "";
+            tfAdresse.value = "";
+            tfCodePostal.value = "";
+            tfVille.value = "";
+        }
+
+    </script>
 
 </body>
 </html>
