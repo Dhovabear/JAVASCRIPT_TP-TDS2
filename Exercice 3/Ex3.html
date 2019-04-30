@@ -17,12 +17,25 @@
     <div class="" style="display: inline-block">
         <div class="alert alert-danger">ddddd</div>
         <form action="">
-            <label for="nom">Nom*</label><input type="text" name="nom" required><br>
-            <label for="prenom">Prenom*</label><input type="text" name="prenom" required><br>
-            <label for="adresse">Adresse</label><input type="text" name="adresse"><br>
-            <label for="codePostal">Code Postal</label><input type="text" name="codePostal"><br>
-            <label for="ville">Ville*</label><input type="text" name="ville" required><br>
-            <input type="button" value="Reset"><input type="submit" value="Ok"><br>
+            <div style="display: block; float: left;">
+                <label for="nom" style="margin: 5px 0px 10px 0px">Nom*</label><br>
+                <label for="prenom" style="margin: 0px 0px 15px 0px">Prenom*</label><br>
+                <label for="adresse" style="margin: 0px 0px 10px 0px">Adresse</label><br>
+                <label for="codePostal" style="margin: 0px 0px 13px 0px">Code Postal</label><br>
+                <label for="ville" style="margin: 0px 0px 10px 0px">Ville*</label>
+            </div>
+
+            <div style="display: block; float: right">
+                <input type="text" name="nom" style="float: right" required><br>
+                <input type="text" name="prenom" style="float: right" required><br>
+                <input type="text" name="adresse" style="float: right"><br>
+                <input type="text" name="codePostal" style="float: right"><br>
+                <input type="text" name="ville" style="float: right" required><br>
+            </div>
+            <br>
+            <div style="display: inline-block; float: bottom; width: 250px">
+                <input type="button" value="Reset" style="float: left;"><input type="submit" value="Ok" style="float: right"><br>
+            </div>
 
         </form>
     </div>
