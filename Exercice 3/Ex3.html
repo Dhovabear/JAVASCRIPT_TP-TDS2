@@ -27,7 +27,7 @@
             </div>
             <br>
             <div style="display: inline-block; float: bottom; width: 270px">
-                <input type="button" value="Reset" style="float: left;" class="btn btn-secondary" onclick="reset()">
+                <input type="button" value="Reset" style="float: left;" class="btn btn-secondary" onclick="resete()">
                 <input type="button" value="Valider" style="float: right" class="btn btn-primary" onclick="valider()"><br>
             </div>
 
@@ -79,11 +79,9 @@
             }
         }
 
-        function reset() {
+        function resete() {
             tfNom.value = "";
             tfPrenom.value = "";
-            tfAdresse.value = "";
-            tfCodePostal.value = "";
             tfVille.value = "";
         }
 
