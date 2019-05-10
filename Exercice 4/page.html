@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div class="mx-auto" style="width: 200px; margin-top: 15%">
+<div class="mx-auto" style="width: 200px; margin-top: 15%;">
     <caption>
         <table border="2">
             <thead>
@@ -23,7 +23,15 @@
             </tbody>
         </table>
     </caption>
+    <form action="">
+        <legend>yolo</legend>
+        <label for="prenom">prenom</label><input type="text" id="prenom">
+        <label for="nom">nom</label><input type="text" id="nom">
+        <input type="button" onclick="addSomeone()" value="Ajouter">
+
+    </form>
 </div>
+
 
 <script>
 
@@ -62,6 +70,21 @@
             document.getElementById("tb"+i).parentNode.remove();
             console.log(joueurs);
         }
+    }
+
+    function addSomeone() {
+        var tab = document.getElementById("buddy");
+        var nom = document.getElementById("nom").value;
+        var prenom = document.getElementById("prenom").value;
+        var str = "<tr>";
+        str += "<td id='tb"+joueurs.length+"'>"+prenom+"</td>";
+        str += "<td>"+nom+"</td>";
+        str += "<td><input type='button' onclick='supprSomeone("+(joueurs.length)+")' value='supprimer'></td>";
+        str += "</tr>";
+        tab.innerHTML += str;
+        joueurs.push(new Array(prenom,nom));
+        Console.log(joueurs);
+        return false;
     }
 </script>
 
