@@ -27,22 +27,41 @@
 
 <script>
 
-    var joueurs  = new Array(){
-        new Array('Justin','WEIN');
-        new Array('Jason','VANDAELE');
-        new Array('Raptor','ROUGE');
-        new Array('Moi','DIEU');
+    var joueurs  = new Array(
+        new Array('Justin','WEIN'),
+        new Array('Jason','VANDAELE'),
+        new Array('Raptor','ROUGE'),
+        new Array('Moi','DIEU')
+    );
+
+
+    affGens();
+
+
+    function affGens() {
+        var tab = document.getElementById("buddy");
+        tab.innerHTML = "";
+        for ( var i = 0 ; i < joueurs.length ; i++){
+            if(joueurs[i] == undefined){
+                continue;
+            }
+            var str = "<tr>";
+            str += "<td id='tb"+i+"'>" + joueurs[i][0] + "</td>";
+            str += "<td>" + joueurs[i][1] + "</td>";
+            str += "<td> <input type='button' value='supprimer' onclick='supprSomeone("+i+")'></td>";
+            str += "</tr>";
+            console.log(str);
+            tab.innerHTML += str;
+        }
     }
 
-
-
-    $tab = document.getElementById("buddy");
-    for ( var i = 0 ; i < joueurs.length ; i++){
-        $tab.innerText += "<tr>";
-        $tab.innerText += "<td>" + joueurs[i][0] + "</td>";
-        $tab.innerText += "<td>" + joueurs[i][1] + "</td>";
-        $tab.innerText += "<td> <input type='button' value='supprimer' onclick='delete joueurs["+i+"]'></td>";
-        $tab.innerText += "</tr>";
+    function supprSomeone(i) {
+        if(confirm("êtes vous sur de vouloir supprimer " + joueurs[i][0] + " " + joueurs[i][1] + "?")){
+            console.log(confirm);
+            delete joueurs[i];
+            document.getElementById("tb"+i).parentNode.remove();
+            console.log(joueurs);
+        }
     }
 </script>
 
