@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ta mère le lampadaire</title>
+
+</head>
+<body id="corp" onpageshow="">
+
+</body>
+<script>
+    var fond = document.getElementById("corp");
+    console.log(fond);
+
+
+    var timer = setInterval(function() {
+
+        /* Here comes the rest of JavaScript code. */
+        var tbl = new Array('#e1ff00','#00b2ff','#ff0000','#00ff08');
+        var min=0;
+        var max= 255;
+        var random = Math.floor(Math.random() * (max - min)) + min;
+
+        var r = random;
+        var random = Math.floor(Math.random() * (max - min)) + min;
+        var g = random;
+        var random = Math.floor(Math.random() * (max - min)) + min;
+        var b = random;
+
+        console.log(random);
+        fond.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+
+    }, 150);
+
+</script>
+</html>
