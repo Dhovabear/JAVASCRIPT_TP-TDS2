@@ -30,30 +30,70 @@
 <script>
 
     var fond = document.getElementById("corp");
-    var timer = setInterval(function() {
+    var timerSpeed = 2000;
 
-        /* Here comes the rest of JavaScript code. */
-        var tbl = new Array('#e1ff00','#00b2ff','#ff0000','#00ff08');
-        var min=0;
-        var max= 255;
-        var random = Math.floor(Math.random() * (max - min)) + min;
 
-        var r = random;
-        var random = Math.floor(Math.random() * (max - min)) + min;
-        var g = random;
-        var random = Math.floor(Math.random() * (max - min)) + min;
-        var b = random;
+    function setTimerVite() {
+        var timer = setInterval(function() {
 
-        console.log(random);
-        fond.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+            /* Here comes the rest of JavaScript code. */
+            var tbl = new Array('#e1ff00','#00b2ff','#ff0000','#00ff08');
+            var min=0;
+            var max= 255;
+            var random = Math.floor(Math.random() * (max - min)) + min;
 
-    }, 800);
+            var r = random;
+            var random = Math.floor(Math.random() * (max - min)) + min;
+            var g = random;
+            var random = Math.floor(Math.random() * (max - min)) + min;
+            var b = random;
+
+            console.log(random);
+            fond.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+
+        }, 10);
+    }
+
+    function setTimerLent() {
+        var timer = setInterval(function() {
+
+            /* Here comes the rest of JavaScript code. */
+            var tbl = new Array('#e1ff00','#00b2ff','#ff0000','#00ff08');
+            var min=0;
+            var max= 255;
+            var random = Math.floor(Math.random() * (max - min)) + min;
+
+            var r = random;
+            var random = Math.floor(Math.random() * (max - min)) + min;
+            var g = random;
+            var random = Math.floor(Math.random() * (max - min)) + min;
+            var b = random;
+
+            console.log(random);
+            fond.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+
+        }, 10000);
+    }
+
+
 
     var prop = $('#pn');
     var val = $("#pv");
     var div = $("#divm")
+
     function addProp() {
-        div.css(prop.text,val.text);
+        if(prop.val() == "makes me" && val.val() == "epileptic"){
+            timerSpeed = 10;
+            setTimerVite();
+            console.log(timerSpeed);
+            return;
+        }else if(prop.val() == "please" && val.val() == "stop"){
+            timerSpeed = 10000;
+            setTimerLent();
+            console.log(timerSpeed);
+            return;
+        }
+        div.css(prop.val(),val.val());
     }
 
 
