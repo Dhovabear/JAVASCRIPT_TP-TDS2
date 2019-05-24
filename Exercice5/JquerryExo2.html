@@ -13,14 +13,15 @@
 </head>
 <body id="corp" style="text-align: center">
 
-<div class="mx-auto" style="width: 250px; margin-top: 15%; background-color: white">
-    <form action="" method="post">
+<div class="mx-auto" style="width: 250px; margin-top: 15%; background-color: white" id = "divm">
+    <form action="">
         <legend>CSS modifier</legend>
 
         <label for="propName">Nom de la propriètée  </label><br>
-        <input type="text" name = "propName"><br><br>
+        <input type="text" name = "propName" id = "pn"><br><br>
         <label for="value">Valeur  </label><br>
-        <input type="text" name="value">
+        <input type="text" name="value" id="pv">
+        <input type="button" value="modifier !" onclick="addProp()">
 
     </form>
 </div>
@@ -46,7 +47,14 @@
         console.log(random);
         fond.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
 
-    }, 10);
+    }, 800);
+
+    var prop = $('#pn');
+    var val = $("#pv");
+    var div = $("#divm")
+    function addProp() {
+        div.css(prop.text,val.text);
+    }
 
 
 
